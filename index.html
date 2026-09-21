@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store</title>
+    <style>
+        #loginPage {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://wallpaperaccess.com/full/4754341.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.login-box {
+    background: #111727;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    color: white;
+    text-align: center;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 10px;
+    background: #36e2ec;
+    border: none;
+    cursor: pointer;
+}
+
+#error {
+    color: red;
+}
+body {
+    font-family: Arial;
+    margin: 0;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+    padding: 15px 30px;
+}
+
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Sections */
+section {
+    padding: 30px;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+/* Products */
+.products {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    width: 20vh;
+}
+
+.card img {
+    width: 100%;
+}
+
+button {
+    padding: 8px 12px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Cart */
+.cart {
+    background: #f4f4f4;
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart li {
+    margin: 10px 0;
+}
+.cart button {
+    margin-top: 10px;
+    background: green;
+}
+
+#order-message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+.checkout-form textarea {
+    height: 60px;
+}
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centers inputs */
+    gap: 10px;
+}.cart button {
+    background: linear-gradient(45deg, #28a745, #218838);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.cart button:hover {
+    background: linear-gradient(45deg, #218838, #1e7e34);
+    transform: scale(1.05);
+}.cart {
+    background-image:url("https://tse4.mm.bing.net/th/id/OIP.9ptUtYy0Dgt3aMkzc8F-sQHaEJ?pid=Api&P=0&h=180");
+    background-size: cover;
+    text-align: center; /* This centers everything inside */
+}
+.buttonorder {
+    margin-left: 85vh;
+}
+.img {
+    border-radius: 100px;
+    height: 50px;
+}
+    </style>
+</head>
+<body>
+    <div id="loginPage">
+        <div class="login-box">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="User ID">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p id="error"></p>
+        </div>
+    </div>
+    <div id="mainSite">
+        <header>
+            <div class="">
+                <img src="https://tse2.mm.bing.net/th/id/OIP.Ek1UteCxVPbGSQXdj9bOAQHaHa?pid=Api&P=0&h=180" class="img"/>
+            </div>
+            <h2>ShoeCart</h2>
+            <nav>
+                <a href="#men">Men</a>
+                <a href="#women">Women</a>
+            </nav>
+            <div class="cart-icon">
+                cart🛒 <span id="cart-count">0</span>
+            </div>
+        </header>
+
+        <!-- MEN SECTION -->
+        <section id="men">
+            <h2>Men Shoes</h2>
+            <div class="products">
+
+                <div class="card">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.cJTP6ftLN14Yf_Lf7_fuyQHaE7?pid=Api&P=0&h=180">
+                    <h3>Running Shoes</h3>
+                    <p>1999</p>
+                    <button onclick="addToCart('Running Shoes',1999)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/61Q57owEL8S._SL1500_.jpg">
+                    <h3>loafers</h3>
+                    <p>600</p>
+                    <button onclick="addToCart('Running Shoes',1999)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.JD8E8fbHujnDYNrCNdtrCwHaGo?pid=Api&P=0&h=180">
+                    <h3>boots</h3>
+                    <p>1200</p>
+                    <button onclick="addToCart('Running Shoes',1999)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.C97L8TBBuVYuAwwIhLUBvgHaHa?pid=Api&P=0&h=180">
+                    <h3>sports</h3>
+                    <p>999</p>
+                    <button onclick="addToCart('Running Shoes',1999)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.T544Qdf-lY8u-zm_69RyDwHaE7?pid=Api&P=0&h=180">
+                    <h3>sneakers</h3>
+                    <p>2999</p>
+                    <button onclick="addToCart('Running Shoes',1999)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://m.media-amazon.com/images/I/71QFQa8IqaL._UL1500_.jpg">
+                    <h3>spark</h3>
+                    <p>699</p>
+                    <button onclick="addToCart('Running Shoes',1999)">Add to Cart</button>
+                </div>
+                <div class="sh">
+                    <div class="card">
+                    <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/376855/17/sv01">
+                    <h3>puma</h3>
+                    <p>1599</p>
+                    <button onclick="addToCart('Running Shoes',1999)">Add to Cart</button>
+                    </div>
+                </div>
+                
+        </section>
+
+        <!-- WOMEN SECTION -->
+        <section id="women">
+            <h2>Women Shoes</h2>
+            <div class="products">
+
+                <div class="card">
+                    <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_450,h_450/global/367378/27/sv01/fnd/IDN/fmt/png">
+                    <h3>puma women</h3>
+                    <p>2999</p>
+                    <button onclick="addToCart('Women Heels',2999)">Add to Cart</button>
+                </div>
+
+                <div class="card">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.Ndb6dS7-3pvKqx0UahZKTwHaHa?pid=Api&P=0&h=180">
+                    <h3>Women Sneakers</h3>
+                    <p>799</p>
+                    <button onclick="addToCart('Women Sneakers',2199)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://tse3.mm.bing.net/th/id/OIP.mJbsW01UOnNoHiHTXWtDTQAAAA?pid=Api&P=0&h=180">
+                    <h3>women red tape</h3>
+                    <p>1199</p>
+                    <button onclick="addToCart('Women Sneakers',2199)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.OeF4LfL10MIBpj05YhHhLAHaHa?pid=Api&P=0&h=180">
+                    <h3>womem sports</h3>
+                    <p>699</p>
+                    <button onclick="addToCart('Women Sneakers',2199)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.jk96pp-FtvTPAzhJjh7kfwHaHa?pid=Api&P=0&h=180">
+                    <h3>women running Shoes</h3>
+                    <p>2999</p>
+                    <button onclick="addToCart('Women Sneakers',2199)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://i.pinimg.com/736x/7f/a2/8b/7fa28b14ec98a5258d9d56c899917e28.jpg">
+                    <h3>woman adidas</h3>
+                    <p>4999</p>
+                    <button onclick="addToCart('Women Sneakers',2199)">Add to Cart</button>
+                </div>
+                <div class="card">
+                    <img src="https://columbusshoes.com/wp-content/uploads/2025/02/1-189.jpg">
+                    <h3>columbus</h3>
+                    <p>799</p>
+                    <button onclick="addToCart('Women Sneakers',2199)">Add to Cart</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CART -->
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <h3>Total: ₹<span id="total">0</span></h3>
+        </section>
+        <div class="checkout-form">
+            <input type="text" id="customer-name" placeholder="Enter your name">
+            <input type="text" id="phone" placeholder="Enter phone number">
+            <textarea id="address" placeholder="Enter delivery address"></textarea>
+        </div>
+        <button class="buttonorder" onclick="placeOrder()">Place Order</button>
+        <p id="order-message"></p>
+    </div>
+<script>
+    function login() {
+    let user = document.getElementById("username").value;
+    let pass = document.getElementById("password").value;
+
+    if (user === "Rajeevreddy" && pass === "Rajeev@123") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainApp").style.display = "flex";
+    } else {
+        document.getElementById("error").innerText = "Invalid Username or Password";
+    }
+}
+
+let cart = [];
+let total = 0;
+
+function addToCart(name, price) {
+    cart.push({name, price});
+    total += price;
+    updateCart();
+}
+
+function removeFromCart(index) {
+    total -= cart[index].price;
+    cart.splice(index, 1);
+    updateCart();
+}
+
+function updateCart() {
+    const cartItems = document.getElementById("cart-items");
+    const totalDisplay = document.getElementById("total");
+    const count = document.getElementById("cart-count");
+
+    cartItems.innerHTML = "";
+
+    cart.forEach((item, index) => {
+        let li = document.createElement("li");
+        li.innerHTML = `${item.name} - ₹${item.price} 
+        <button onclick="removeFromCart(${index})">X</button>`;
+        cartItems.appendChild(li);
+    });
+
+    totalDisplay.innerText = total;
+    count.innerText = cart.length;
+}
+function placeOrder() {
+    const name = document.getElementById("customer-name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const message = document.getElementById("order-message");
+
+    // Validation
+    if (cart.length === 0) {
+        message.innerText = "⚠️ Your cart is empty!";
+        message.style.color = "red";
+        return;
+    }
+
+    if (name === "" || phone === "" || address === "") {
+        message.innerText = "⚠️ Please fill all details!";
+        message.style.color = "red";
+        return;
+    }
+
+    if (phone.length < 10) {
+        message.innerText = "⚠️ Enter valid phone number!";
+        message.style.color = "red";
+        return;
+    }
+
+    // Processing
+    message.innerText = "⏳ Placing your order...";
+    message.style.color = "black";
+
+    setTimeout(() => {
+        message.innerText = `✅ Order placed successfully!\nName: ${name}`;
+        message.style.color = "green";
+
+        // Clear everything
+        cart = [];
+        total = 0;
+        updateCart();
+
+        document.getElementById("customer-name").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("address").value = "";
+    }, 1500);
+}
+</script>
+</body>
+</html>
